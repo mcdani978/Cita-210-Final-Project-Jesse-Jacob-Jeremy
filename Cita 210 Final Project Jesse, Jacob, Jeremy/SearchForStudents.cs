@@ -92,11 +92,11 @@ namespace Cita_210_Final_Project_Jesse__Jacob__Jeremy
             string studentID = SearchForStudentsIdTextbox.Text;
             string studentName = SearchForStudentsNameTextbox.Text;
 
-            // Search for the student in the Students list
-            var student = MainMenu.Students.FirstOrDefault(s => s.StudentID == studentID || s.StudentName == studentName);
+            // Search for the students in the Students list
+            var students = MainMenu.Students.Where(s => s.StudentID == studentID || s.StudentName == studentName).ToList();
 
-            // If the student was found
-            if (student != null)
+            // If any students were found
+            if (students.Any())
             {
                 // Create a new DataTable
                 DataTable dt = new DataTable();
@@ -106,16 +106,19 @@ namespace Cita_210_Final_Project_Jesse__Jacob__Jeremy
                 dt.Columns.Add("Student Name");
                 dt.Columns.Add("Courses Enrolled In");  // New column for the courses
 
-                // Add a row to the DataTable for the student
-                string courses = student.CoursesEnrolledIn != null && student.CoursesEnrolledIn.Length > 0 ? string.Join(", ", student.CoursesEnrolledIn) : "Not enrolled in any courses";
-                dt.Rows.Add(student.StudentID, student.StudentName, courses);
+                // Add a row to the DataTable for each student
+                foreach (var student in students)
+                {
+                    string courses = student.CoursesEnrolledIn != null && student.CoursesEnrolledIn.Length > 0 ? string.Join(", ", student.CoursesEnrolledIn) : "Not enrolled in any courses";
+                    dt.Rows.Add(student.StudentID, student.StudentName, courses);
+                }
 
                 // Bind the DataTable to the DataGridView
                 dataGridView1.DataSource = dt;
             }
             else
             {
-                // Show a message box if the student was not found
+                // Show a message box if no students were found
                 MessageBox.Show("Student not found.");
             }
 
