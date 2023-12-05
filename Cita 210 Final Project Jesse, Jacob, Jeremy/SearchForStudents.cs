@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static Cita_210_Final_Project_Jesse__Jacob__Jeremy.MainMenu;
 
 namespace Cita_210_Final_Project_Jesse__Jacob__Jeremy
 {
@@ -92,8 +93,28 @@ namespace Cita_210_Final_Project_Jesse__Jacob__Jeremy
             string studentID = SearchForStudentsIdTextbox.Text;
             string studentName = SearchForStudentsNameTextbox.Text;
 
-            // Search for the students in the Students list
-            var students = MainMenu.Students.Where(s => s.StudentID == studentID || s.StudentName == studentName).ToList();
+            // Initialize an empty list of students
+            List<StudentDatabase> students = new List<StudentDatabase>();
+
+            // If both the student ID and name textboxes are not empty, search by both student ID and name
+            if (!string.IsNullOrEmpty(studentID) && !string.IsNullOrEmpty(studentName))
+            {
+                students = MainMenu.Students.Where(s => s.StudentID == studentID && s.StudentName == studentName).ToList();
+            }
+            else
+            {
+                // If the student ID textbox is not empty, search by student ID
+                if (!string.IsNullOrEmpty(studentID))
+                {
+                    students.AddRange(MainMenu.Students.Where(s => s.StudentID == studentID));
+                }
+
+                // If the student name textbox is not empty, search by student name
+                if (!string.IsNullOrEmpty(studentName))
+                {
+                    students.AddRange(MainMenu.Students.Where(s => s.StudentName == studentName));
+                }
+            }
 
             // If any students were found
             if (students.Any())
