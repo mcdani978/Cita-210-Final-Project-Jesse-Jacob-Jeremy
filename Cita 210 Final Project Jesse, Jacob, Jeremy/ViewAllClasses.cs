@@ -20,14 +20,13 @@ namespace Cita_210_Final_Project_Jesse__Jacob__Jeremy
             DataTable dt = new DataTable();
 
             // Add Columns to the Datatable
-            dt.Columns.Add("Course Name");
-
             dt.Columns.Add("Course ID");
+            dt.Columns.Add("Course Name");
 
             // Add rows to the DataTable for each student
             foreach (var course in MainMenu.Courses)
             {
-                dt.Rows.Add(course.CourseName, course.CourseID);
+                dt.Rows.Add(course.CourseID, course.CourseName);
             }
 
             // Bind the DataTable to the DataGridView 
