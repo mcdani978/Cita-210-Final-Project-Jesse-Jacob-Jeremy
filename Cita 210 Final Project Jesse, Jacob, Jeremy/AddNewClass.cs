@@ -29,7 +29,7 @@ namespace Cita_210_Final_Project_Jesse__Jacob__Jeremy
             string courseName = CourseNameTextBox.Text;
             string courseID = CourseIDTextbox.Text;
 
-            // Check if the text boxes are not empty
+            // Only create a new Course object and add it to the Courses list if the CourseName and CourseID text boxes are not empty
             if (!string.IsNullOrEmpty(courseName) && !string.IsNullOrEmpty(courseID))
             {
                 // Check if a course with the same ID or name already exists

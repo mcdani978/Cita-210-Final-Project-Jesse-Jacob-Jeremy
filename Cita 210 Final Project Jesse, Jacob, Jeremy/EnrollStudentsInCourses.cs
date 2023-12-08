@@ -29,7 +29,11 @@ namespace Cita_210_Final_Project_Jesse__Jacob__Jeremy
             // Populate the ComboBox with the names of all the courses
             foreach (var course in MainMenu.Courses)
             {
-                EnrollInCoursesComboBox.Items.Add(course.CourseName);
+                // Only add the course to the ComboBox if the CourseName is not empty
+                if (!string.IsNullOrEmpty(course.CourseName))
+                {
+                    EnrollInCoursesComboBox.Items.Add(course.CourseName);
+                }
             }
         }
 

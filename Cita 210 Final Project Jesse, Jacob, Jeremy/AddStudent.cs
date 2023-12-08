@@ -49,6 +49,11 @@ namespace Cita_210_Final_Project_Jesse__Jacob__Jeremy
                     // Add the new student to the Students list
                     MainMenu.Students.Add(newStudent);
 
+                    // Save the new student's information to the settings
+                    Properties.Settings.Default["StudentName"] = StudentName;
+                    Properties.Settings.Default["StudentID"] = StudentID;
+                    Properties.Settings.Default.Save(); // Don't forget to save the settings
+
                     // Show a message box to confirm the addition
                     MessageBox.Show("Student added successfully.");
 

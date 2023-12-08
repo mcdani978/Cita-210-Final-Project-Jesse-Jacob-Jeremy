@@ -116,28 +116,28 @@
             // addNewClassToolStripMenuItem
             // 
             addNewClassToolStripMenuItem.Name = "addNewClassToolStripMenuItem";
-            addNewClassToolStripMenuItem.Size = new Size(224, 26);
+            addNewClassToolStripMenuItem.Size = new Size(212, 26);
             addNewClassToolStripMenuItem.Text = "Add new Class";
             addNewClassToolStripMenuItem.Click += addNewClassToolStripMenuItem_Click;
             // 
             // viewAllClassesToolStripMenuItem
             // 
             viewAllClassesToolStripMenuItem.Name = "viewAllClassesToolStripMenuItem";
-            viewAllClassesToolStripMenuItem.Size = new Size(224, 26);
+            viewAllClassesToolStripMenuItem.Size = new Size(212, 26);
             viewAllClassesToolStripMenuItem.Text = "View All Classes";
             viewAllClassesToolStripMenuItem.Click += viewAllClassesToolStripMenuItem_Click;
             // 
             // searchForClassesToolStripMenuItem
             // 
             searchForClassesToolStripMenuItem.Name = "searchForClassesToolStripMenuItem";
-            searchForClassesToolStripMenuItem.Size = new Size(224, 26);
+            searchForClassesToolStripMenuItem.Size = new Size(212, 26);
             searchForClassesToolStripMenuItem.Text = "Search For Classes";
             searchForClassesToolStripMenuItem.Click += searchForClassesToolStripMenuItem_Click;
             // 
             // removeAClassToolStripMenuItem
             // 
             removeAClassToolStripMenuItem.Name = "removeAClassToolStripMenuItem";
-            removeAClassToolStripMenuItem.Size = new Size(224, 26);
+            removeAClassToolStripMenuItem.Size = new Size(212, 26);
             removeAClassToolStripMenuItem.Text = "Remove A Class";
             removeAClassToolStripMenuItem.Click += removeAClassToolStripMenuItem_Click;
             // 
@@ -194,7 +194,7 @@
             Controls.Add(menuStrip2);
             Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
             MainMenuStrip = menuStrip1;
-            Margin = new Padding(5, 5, 5, 5);
+            Margin = new Padding(5);
             Name = "MainMenu";
             Text = "Main Menu";
             Load += Form1_Load;

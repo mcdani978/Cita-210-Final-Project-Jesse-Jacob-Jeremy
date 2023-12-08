@@ -21,18 +21,20 @@ namespace Cita_210_Final_Project_Jesse__Jacob__Jeremy
 
             // Add Columns to the DataTable
             dt.Columns.Add("Student ID");
-
             dt.Columns.Add("Student Name");
-
             dt.Columns.Add("Courses Enrolled In");
 
             // Add rows to the DataTable for each student 
             foreach (var student in MainMenu.Students)
             {
-                string courses = student.CoursesEnrolledIn != null && student.CoursesEnrolledIn.Length > 0
-                    ? string.Join(", ", student.CoursesEnrolledIn) : "Not enrolled in any courses";
+                // Only add the student to the DataTable if the StudentName and StudentID are not empty
+                if (!string.IsNullOrEmpty(student.StudentName) && !string.IsNullOrEmpty(student.StudentID))
+                {
+                    string courses = student.CoursesEnrolledIn != null && student.CoursesEnrolledIn.Length > 0
+                        ? string.Join(", ", student.CoursesEnrolledIn) : "Not enrolled in any courses";
 
-                dt.Rows.Add(student.StudentID, student.StudentName, courses);
+                    dt.Rows.Add(student.StudentID, student.StudentName, courses);
+                }
             }
 
             // Bind the DataTable to the DataGridView 
